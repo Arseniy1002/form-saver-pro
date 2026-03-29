@@ -83,7 +83,7 @@
 
 По вопросам конфиденциальности и безопасности:
 - Email: arseniyrub102@gmail.com
-- GitHub: https://github.com/arseniyrub102/form-saver-pro
+- GitHub: https://github.com/arseniy1002/form-saver-pro
 
 ---
 
