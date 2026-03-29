@@ -2,7 +2,7 @@
 
 **Версия:** 5.0.0  
 **Лицензия:** MIT  
-**Статус:** Опубликовано на [Firefox Add-ons](https://addons.mozilla.org/ru/firefox/addon/form-saver-pro/)
+**Статус:** На проверке [Firefox Add-ons](https://addons.mozilla.org/ru/firefox/addon/form-saver-pro/)
 
 Автосохранение и восстановление форм с шифрованием, умными полями, папками и аналитикой.
 
@@ -129,8 +129,6 @@ web-ext lint
 # Создание XPI
 web-ext build
 
-# Запуск тестов (если есть)
-npm test
 ```
 
 ## 📝 Changelog
@@ -176,7 +174,7 @@ npm test
 Приветствуются issue и pull requests!
 
 ### Как помочь
-1. Fork репозиторий
+1. Fork репозитория
 2. Создайте ветку (`git checkout -b feature/amazing-feature`)
 3. Закоммитьте изменения (`git commit -m 'Add amazing feature'`)
 4. Отправьте (`git push origin feature/amazing-feature`)
@@ -189,7 +187,7 @@ MIT License — см. файл [LICENSE](LICENSE) для деталей.
 ## 📞 Контакты
 
 - **Email:** arseniyrub102@gmail.com
-- **GitHub:** [@arseniyrub102](https://github.com/arseniyrub102)
+- **GitHub:** [@arseniy1002](https://github.com/arseniy1002)
 - **Firefox Add-ons:** [Form Saver Pro](https://addons.mozilla.org/ru/firefox/addon/form-saver-pro/)
 
 ## 🙏 Благодарности
