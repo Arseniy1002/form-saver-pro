@@ -2,6 +2,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Pure JS](https://img.shields.io/badge/code-Vanilla_JS-yellow)
 ![Manifest](https://img.shields.io/badge/manifest-V3-orange)
+![Size](https://img.shields.io/github/languages/code-size/arseniy1002/form-saver-pro)
 
 # Form Saver Pro 🦊
 
