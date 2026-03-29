@@ -1,0 +1,22 @@
+# Игнорируемые файлы для Form Saver Pro
+
+# Артефакты сборки
+web-ext-artifacts/
+*.xpi
+*.zip
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ОС
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Временные файлы
+*.log
+*.tmp

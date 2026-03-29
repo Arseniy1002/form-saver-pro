@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-size: 14px;
+  color: #333;
+  background: #f5f5f5;
+  min-width: 500px;
+  padding: 24px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+header p {
+  font-size: 14px;
+  color: #666;
+}
+
+.settings-section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.settings-section h2 {
+  font-size: 18px;
+  margin-bottom: 16px;
+  color: #1a1a1a;
+}
+
+.setting-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.setting-row:last-child {
+  border-bottom: none;
+}
+
+.setting-row input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.setting-row input[type="number"],
+.setting-row input[type="password"] {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 150px;
+}
+
+.setting-info {
+  flex: 1;
+}
+
+.setting-label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.setting-desc {
+  display: block;
+  font-size: 12px;
+  color: #888;
+}
+
+.warning-box {
+  background: #fff3e0;
+  border-left: 4px solid #ff9800;
+  padding: 12px 16px;
+  margin-top: 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #e65100;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: #4CAF50;
+  color: white;
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.btn-danger {
+  background: #f44336;
+  color: white;
+}
+
+.hotkeys-list {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.hotkey-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.hotkey-item:last-child {
+  border-bottom: none;
+}
+
+.hotkey-item span:first-child {
+  flex: 1;
+}
+
+.hotkey-item span:last-child {
+  color: #888;
+  font-size: 12px;
+}
+
+kbd {
+  background: #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  font-weight: 500;
+}
+
+.save-status {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+.save-status.visible {
+  opacity: 1;
+}
+
+.save-status.success {
+  background: #4CAF50;
+  color: white;
+}
+
+.save-status.error {
+  background: #f44336;
+  color: white;
+}
+
+#encryptionPasswordRow {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#encryptionPasswordRow input {
+  width: 100%;
+  margin-top: 8px;
+}

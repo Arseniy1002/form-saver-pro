@@ -1,0 +1,25 @@
+{
+  "extName": {
+    "message": "Form Saver Pro",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Smart form saving and restoration",
+    "description": "Extension description"
+  },
+  "cmdRestoreLast": {
+    "message": "Restore last form"
+  },
+  "cmdSaveCurrent": {
+    "message": "Save current form"
+  },
+  "cmdQuickFill": {
+    "message": "Quick fill with smart fields"
+  },
+  "cmdOpenPopup": {
+    "message": "Open forms manager"
+  },
+  "cmdSearch": {
+    "message": "Search forms"
+  }
+}

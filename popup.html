@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Saver Pro v4</title>
+  <link rel="stylesheet" href="styles/popup.css">
+</head>
+<body class="light-theme">
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <h1>📋 Form Saver Pro <span class="version">v4</span></h1>
+        <div class="header-actions">
+          <button id="lockBtn" class="icon-btn" title="Заблокировать" style="display:none;">🔒</button>
+          <button id="themeToggle" class="icon-btn" title="Тёмная тема">🌙</button>
+        </div>
+      </div>
+      <p class="subtitle">Умное сохранение форм</p>
+    </header>
+
+    <!-- Вкладки -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="dashboard">📊</button>
+      <button class="tab-btn" data-tab="forms">📝</button>
+      <button class="tab-btn" data-tab="folders">📁</button>
+      <button class="tab-btn" data-tab="rules">⚡</button>
+      <button class="tab-btn" data-tab="settings">⚙️</button>
+    </div>
+
+    <!-- ДАШБОРД -->
+    <div class="tab-content active" id="dashboard-tab">
+      <div class="dashboard-grid">
+        <div class="dash-card">
+          <div class="dash-icon">📝</div>
+          <div class="dash-value" id="dashTotalForms">0</div>
+          <div class="dash-label">Всего форм</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-icon">📁</div>
+          <div class="dash-value" id="dashTotalFolders">0</div>
+          <div class="dash-label">Папок</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-icon">💾</div>
+          <div class="dash-value" id="dashTotalSaved">0</div>
+          <div class="dash-label">Сохранено</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-icon">🔄</div>
+          <div class="dash-value" id="dashTotalRestored">0</div>
+          <div class="dash-label">Восстановлено</div>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <h3>📈 Активность за неделю</h3>
+        <div class="activity-chart" id="activityChart"></div>
+      </div>
+
+      <div class="dashboard-sections">
+        <div class="dash-section">
+          <h3>📁 Топ папок</h3>
+          <div id="topFoldersList"></div>
+        </div>
+        <div class="dash-section">
+          <h3>🏷️ Типы полей</h3>
+          <div id="fieldTypesList"></div>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <h3>⚡ Быстрые действия</h3>
+        <div class="quick-actions-grid">
+          <button class="quick-action-btn" id="qaSmartFill">
+            <span class="qa-icon">🧠</span>
+            <span>Умное заполнение</span>
+          </button>
+          <button class="quick-action-btn" id="qaExport">
+            <span class="qa-icon">📤</span>
+            <span>Экспорт</span>
+          </button>
+          <button class="quick-action-btn" id="qaAudit">
+            <span class="qa-icon">🔒</span>
+            <span>Аудит</span>
+          </button>
+          <button class="quick-action-btn" id="qaSettings">
+            <span class="qa-icon">⚙️</span>
+            <span>Настройки</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Вкладка форм -->
+    <div class="tab-content" id="forms-tab">
+      <div class="forms-header">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="🔍 Поиск...">
+        </div>
+        <select id="folderFilter" class="folder-filter">
+          <option value="">Все папки</option>
+        </select>
+      </div>
+
+      <div class="filter-tags" id="filterTags"></div>
+
+      <div class="sort-options">
+        <label>Сортировка:</label>
+        <select id="sortSelect">
+          <option value="date-desc">По дате (новые)</option>
+          <option value="date-asc">По дате (старые)</option>
+          <option value="title">По названию</option>
+          <option value="site">По сайту</option>
+        </select>
+      </div>
+
+      <div class="forms-list" id="formsList"></div>
+
+      <div class="actions">
+        <button id="clearAll" class="btn btn-danger">Очистить всё</button>
+        <button id="exportData" class="btn btn-secondary">Экспорт</button>
+        <label class="btn btn-secondary" for="importFile">Импорт<input type="file" id="importFile" accept=".json" style="display: none;"></label>
+      </div>
+    </div>
+
+    <!-- Вкладка папок -->
+    <div class="tab-content" id="folders-tab">
+      <div class="folders-header">
+        <input type="text" id="newFolderName" placeholder="Название папки..." class="folder-input">
+        <button id="createFolder" class="btn btn-primary">Создать</button>
+      </div>
+      <div class="folders-list" id="foldersList"></div>
+    </div>
+
+    <!-- Вкладка правил -->
+    <div class="tab-content" id="rules-tab">
+      <div class="rules-header">
+        <h3>⚡ Правила автозаполнения</h3>
+        <button id="createRule" class="btn btn-primary">+ Правило</button>
+      </div>
+      <div class="rules-list" id="rulesList"></div>
+      <p class="rules-hint">Правила позволяют автоматически заполнять формы на определённых сайтах</p>
+    </div>
+
+    <!-- Вкладка настроек -->
+    <div class="tab-content" id="settings-tab">
+      <div class="settings-group">
+        <h3>🔐 Безопасность</h3>
+        <label class="setting-item">
+          <input type="checkbox" id="masterPasswordEnabled">
+          <span>Мастер-пароль</span>
+        </label>
+        <div class="setting-item" id="masterPasswordBox">
+          <label>Пароль:</label>
+          <input type="password" id="masterPassword" placeholder="Введите мастер-пароль">
+        </div>
+        <label class="setting-item">
+          <input type="checkbox" id="enableEncryption">
+          <span>Шифрование данных</span>
+        </label>
+        <div class="setting-item" id="encryptionPasswordBox">
+          <label>Пароль:</label>
+          <input type="password" id="encryptionPassword" placeholder="Пароль шифрования">
+        </div>
+      </div>
+
+      <div class="settings-group">
+        <h3>⚙️ Общие</h3>
+        <label class="setting-item">
+          <input type="checkbox" id="enableNotifications">
+          <span>Уведомления</span>
+        </label>
+        <label class="setting-item">
+          <input type="checkbox" id="enableSync">
+          <span>Синхронизация</span>
+        </label>
+        <label class="setting-item">
+          <input type="checkbox" id="autoCleanup">
+          <span>Автоочистка (>30 дней)</span>
+        </label>
+        <label class="setting-item">
+          <input type="checkbox" id="enableClickFill">
+          <span>Автозаполнение по клику</span>
+        </label>
+        <label class="setting-item">
+          <input type="checkbox" id="enableSmartFields">
+          <span>Умные поля</span>
+        </label>
+        <label class="setting-item">
+          <input type="checkbox" id="darkTheme">
+          <span>Тёмная тема</span>
+        </label>
+      </div>
+
+      <button id="saveSettings" class="btn btn-primary btn-full">Сохранить настройки</button>
+      
+      <div class="settings-links">
+        <a href="options.html" target="_blank" class="settings-link">→ Расширенные настройки</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальные окна -->
+  <div id="noteModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>📝 Заметка</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <textarea id="noteText" placeholder="Заметка..."></textarea>
+      <div class="modal-actions">
+        <button id="saveNote" class="btn btn-primary">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="versionsModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>📚 Версии</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div id="versionsList" class="versions-list"></div>
+    </div>
+  </div>
+
+  <div id="colorModal" class="modal">
+    <div class="modal-content modal-small">
+      <div class="modal-header">
+        <h3>🎨 Цвет</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="color-options" id="colorOptions"></div>
+    </div>
+  </div>
+
+  <div id="ruleModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚡ Правило</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="rule-form">
+        <input type="text" id="ruleName" placeholder="Название правила" class="rule-input">
+        <input type="text" id="ruleUrl" placeholder="URL (например: google.com)" class="rule-input">
+        <select id="ruleFormId" class="rule-input">
+          <option value="">Выберите форму...</option>
+        </select>
+        <label class="rule-checkbox">
+          <input type="checkbox" id="ruleEnabled" checked>
+          <span>Включено</span>
+        </label>
+      </div>
+      <div class="modal-actions">
+        <button id="saveRule" class="btn btn-primary">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="auditModal" class="modal">
+    <div class="modal-content modal-large">
+      <div class="modal-header">
+        <h3>🔒 Аудит безопасности</h3>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div id="auditList" class="audit-list"></div>
+    </div>
+  </div>
+
+  <div id="lockModal" class="modal">
+    <div class="modal-content modal-small">
+      <div class="modal-header">
+        <h3>🔒 Разблокировка</h3>
+      </div>
+      <input type="password" id="unlockPassword" placeholder="Мастер-пароль" class="unlock-input">
+      <div class="modal-actions">
+        <button id="unlockBtn" class="btn btn-primary">Разблокировать</button>
+      </div>
+      <p id="unlockError" class="unlock-error"></p>
+    </div>
+  </div>
+
+  <script src="scripts/polyfill.js"></script>
+  <script src="scripts/popup.js"></script>
+</body>
+</html>

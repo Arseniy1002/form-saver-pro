@@ -1,0 +1,99 @@
+{
+  "manifest_version": 3,
+  "name": "Form Saver Pro",
+  "version": "5.0.0",
+  "description": "Умное сохранение форм с ИИ-распознаванием, папками, правилами и аналитикой",
+  "default_locale": "ru",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "contextMenus",
+    "commands",
+    "notifications",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "scripts/polyfill.js",
+      "scripts/background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "scripts/polyfill.js",
+        "scripts/content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "96": "icons/icon-96.png",
+      "128": "icons/icon-128.png"
+    },
+    "default_title": "Form Saver Pro"
+  },
+  "options_page": "options.html",
+  "commands": {
+    "restore-last-form": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "__MSG_cmdRestoreLast__"
+    },
+    "save-current-form": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F",
+        "mac": "Command+Shift+F"
+      },
+      "description": "__MSG_cmdSaveCurrent__"
+    },
+    "quick-fill": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+D",
+        "mac": "Command+Shift+D"
+      },
+      "description": "__MSG_cmdQuickFill__"
+    },
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "__MSG_cmdOpenPopup__"
+    },
+    "search-forms": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
+      },
+      "description": "__MSG_cmdSearch__"
+    }
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "arseniyrub102@gmail.com",
+      "strict_min_version": "126.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  }
+}

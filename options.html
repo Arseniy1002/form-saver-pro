@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Saver Pro - Настройки</title>
+  <link rel="stylesheet" href="styles/options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📋 Form Saver Pro</h1>
+      <p>Расширенные настройки</p>
+    </header>
+
+    <div class="settings-section">
+      <h2>🔔 Уведомления</h2>
+      <label class="setting-row">
+        <input type="checkbox" id="enableNotifications">
+        <div class="setting-info">
+          <span class="setting-label">Включить уведомления</span>
+          <span class="setting-desc">Показывать уведомления при сохранении форм</span>
+        </div>
+      </label>
+    </div>
+
+    <div class="settings-section">
+      <h2>🔄 Синхронизация</h2>
+      <label class="setting-row">
+        <input type="checkbox" id="enableSync">
+        <div class="setting-info">
+          <span class="setting-label">Синхронизация между устройствами</span>
+          <span class="setting-desc">Использовать облачное хранилище браузера для синхронизации</span>
+        </div>
+      </label>
+    </div>
+
+    <div class="settings-section">
+      <h2>🧹 Автоочистка</h2>
+      <label class="setting-row">
+        <input type="checkbox" id="autoCleanup">
+        <div class="setting-info">
+          <span class="setting-label">Автоматическая очистка</span>
+          <span class="setting-desc">Удалять формы старше 30 дней</span>
+        </div>
+      </label>
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Задержка автосохранения</span>
+          <span class="setting-desc">Задержка перед автосохранением формы (мс)</span>
+        </div>
+        <input type="number" id="autoSaveDelay" min="100" max="5000" step="100">
+      </div>
+      <div class="setting-row">
+        <div class="setting-info">
+          <span class="setting-label">Макс. количество форм</span>
+          <span class="setting-desc">При превышении старые формы удаляются</span>
+        </div>
+        <input type="number" id="maxForms" min="10" max="1000" step="10">
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h2>🔒 Шифрование</h2>
+      <label class="setting-row">
+        <input type="checkbox" id="enableEncryption">
+        <div class="setting-info">
+          <span class="setting-label">Включить шифрование</span>
+          <span class="setting-desc">Все данные шифруются паролем локально</span>
+        </div>
+      </label>
+      <div class="setting-row" id="encryptionPasswordRow">
+        <div class="setting-info">
+          <span class="setting-label">Пароль шифрования</span>
+          <span class="setting-desc">Без пароля невозможно восстановить данные</span>
+        </div>
+        <input type="password" id="encryptionPassword" placeholder="Введите пароль">
+      </div>
+      <div class="warning-box">
+        ⚠️ <strong>Внимание!</strong> Если вы забудете пароль, данные невозможно будет восстановить. 
+        Храните пароль в надёжном месте!
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h2>💾 Данные</h2>
+      <div class="button-row">
+        <button id="exportBtn" class="btn btn-primary">📥 Экспорт данных</button>
+        <label class="btn btn-secondary">
+          📤 Импорт данных
+          <input type="file" id="importBtn" accept=".json" style="display: none;">
+        </label>
+        <button id="clearAllBtn" class="btn btn-danger">🗑️ Удалить всё</button>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h2>⌨️ Горячие клавиши</h2>
+      <div class="hotkeys-list">
+        <div class="hotkey-item">
+          <span>Сохранить текущую форму:</span>
+          <kbd>Ctrl+Shift+F</kbd>
+          <span>(Cmd+Shift+F на Mac)</span>
+        </div>
+        <div class="hotkey-item">
+          <span>Восстановить последнюю форму:</span>
+          <kbd>Ctrl+Shift+S</kbd>
+          <span>(Cmd+Shift+S на Mac)</span>
+        </div>
+        <div class="hotkey-item">
+          <span>Открыть управление формами:</span>
+          <kbd>Ctrl+Shift+A</kbd>
+          <span>(Cmd+Shift+A на Mac)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="save-status" id="saveStatus"></div>
+  </div>
+
+  <script src="scripts/polyfill.js"></script>
+  <script src="scripts/options.js"></script>
+</body>
+</html>

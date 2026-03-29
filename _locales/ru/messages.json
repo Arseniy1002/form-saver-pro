@@ -1,0 +1,25 @@
+{
+  "extName": {
+    "message": "Form Saver Pro",
+    "description": "Название расширения"
+  },
+  "extDescription": {
+    "message": "Умное сохранение и восстановление форм",
+    "description": "Описание расширения"
+  },
+  "cmdRestoreLast": {
+    "message": "Восстановить последнюю форму"
+  },
+  "cmdSaveCurrent": {
+    "message": "Сохранить текущую форму"
+  },
+  "cmdQuickFill": {
+    "message": "Быстрое заполнение умными полями"
+  },
+  "cmdOpenPopup": {
+    "message": "Открыть управление формами"
+  },
+  "cmdSearch": {
+    "message": "Поиск по формам"
+  }
+}
