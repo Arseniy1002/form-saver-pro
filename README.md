@@ -1,3 +1,8 @@
+![Version](https://img.shields.io/badge/version-5.0.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Pure JS](https://img.shields.io/badge/code-Vanilla_JS-yellow)
+![Manifest](https://img.shields.io/badge/manifest-V3-orange)
+
 # Form Saver Pro 🦊
 
 **Версия:** 5.0.0  
@@ -5,6 +10,12 @@
 **Статус:** На проверке [Firefox Add-ons](https://addons.mozilla.org/ru/firefox/addon/form-saver-pro/)
 
 Автосохранение и восстановление форм с шифрованием, умными полями, папками и аналитикой.
+
+### Технологии
+- **Engine:** Vanilla JavaScript (ES6+)
+- **API:** WebExtensions API (Manifest V3)
+- **Compatibility:** Firefox & Chromium-based (через встроенный полифилл)
+- **Security:** AES-GCM (Web Crypto API)
 
 ## 🔥 Возможности
 
